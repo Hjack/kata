@@ -1,0 +1,17 @@
+.box {
+	width: 150px;
+	height: 150px;
+	background-color: gray;
+	margin: 10px;
+	padding: 10px;
+	border-radius: 25px;
+	float: left;
+}
+
+.black {
+	background-color: black;
+}
+
+.green {
+	background-color: green;
+}
