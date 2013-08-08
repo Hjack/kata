@@ -9,30 +9,72 @@
 class Say
 	def initialize(number)
 		@number = number
+		@ones={0=>"zero", 1=>"one", 2=>"two", 3=>"three", 4=>"four", 5=>"five",
+						6=>"six", 7=>"seven", 8=>"eight", 9=>"nine"}
+		@tens={10=>"ten", 20=>"twenty", 30=>"thirty", 40=>"forty",
+			50=>"fifty", 60=>"sixty", 70=>"seventy", 80=>"eighty",
+			90=>"ninety"}
+		@anomoly={11=>"eleven", 12=>"twelve", 13=>"thirteen", 15=>"fifteen"}
 	end
 
 	def in_english
-		return @number
+		if @number >0 && @number < 10
+			ones_translator
+		elsif (@number >= 10 && @number < 100) && (@number%10 == 0)
+			tens_translator
+		elsif (@number%10 != 0) && (@number < 20)
+			teens_translator
+		elsif (@number%10 != 0) && (@number > 20)
+			remainder = @number%10
+			over_twenty_translator.join("") + "-" + remainder_grabber(remainder).join("")
+		else
+			anomoly_translator
+		end
 	end
 
-	def translator
-		ones={1=>"one", 2=>"two", 3=>"three", 4=>"four", 5=>"five",
-						6=>"six", 7=>"seven", 8=>"eight", 9=>"nine"}
-		tens={10=>"ten", 20=>"twenty", 30=>"thirty", 40=>"forty",
-			50=>"fifty", 60=>"sixty", 70=>"seventy", 80=>"eight",
-			90=>"ninety"}
-		anomoly={11=>"eleven", 12=>"twelve", 13=>"thirteen", 15=>"fifteen"}
+	def ones_translator
 		if @number <= 9
-			ones.values_at(@number)
-		elsif @number == 10
-			tens.values_at(@number)
-		elsif @number == 11 || @number == 12 || @number == 13 || @number == 15
-			anomoly.values_at(@number)
-		elsif @number == 14 || @number > 15 && @number < 20
-			ones.values_at(@number%10).join("") + "teen"
-				
+			@ones.values_at(@number)
 		end
+	end
+
+	def tens_translator
+		@tens.values_at(@number)
+	end
+
+	def teens_translator
+		remainder = @number%10
+		remainder_grabber(remainder).join("") + "teen"
+	end
+
+	def over_twenty_translator
+		if @number%10 !=0 && @number > 20
+			tens_number = @number / 10 * 10
+			another_tens_translator(tens_number)
+		end
+	end
+
+	def anomoly_translator
+		@anomoly[@number]
+	end
+
+	def remainder_grabber(remainder)
+		@ones.values_at(remainder)
+	end
+
+	def another_tens_translator(number)
+		@tens.values_at(number)
 	end
 end
 
-puts Say.new(19).translator
+puts Say.new(19).in_english
+puts Say.new(33).in_english
+puts Say.new(93).in_english
+puts Say.new(30).in_english
+puts Say.new(11).in_english
+puts Say.new(12).in_english
+
+
+# puts Say.new(9).ones_translator
+# puts Say.new(22).tens_translator
+# puts Say.new(11).anomoly_translator
