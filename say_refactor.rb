@@ -23,12 +23,12 @@ class Say
 		if (@number >0 && @number < 10)
 			puts "Hello I made it hear"
 		elsif (@number >= 10 && @number < 100 && @number%10 == 0)
-			tens_translator
+			puts "The number is greater than equal 10 & < 100 and divisible by 10"
 		elsif (@number%10 != 0 && @number < 20 && @number != 11 || 12 || 13 || 15)
-			teens_translator
+			puts "The teens translator works"
 		else (@number%10 != 0 && @number > 20)
-			remainder = @number%10
-			over_twenty_translator.join("") + "-" + remainder_grabber(remainder).join("")
+		
+			puts "Over twenty_trans"
 		# else
 		# 	anomoly_translator
 		end
@@ -70,7 +70,7 @@ class Say
 end
 
 
-Say.new(19).in_english
+Say.new(12).in_english
 # puts Say.new(33).in_english.inspect
 # puts Say.new(93).in_english.inspect
 # puts Say.new(30).in_english.inspect
