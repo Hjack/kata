@@ -18,19 +18,19 @@ class Say
 	end
 
 	def in_english
-		# if @number == 11 || 12 || 13 || 15
-		# 	anomoly_translator
-		if (@number >0 && @number < 10)
-			puts "Hello I made it hear"
+		if [11, 12, 13, 15].include? @number
+			anomoly_translator
+		elsif (@number >0 && @number < 10)
+			ones_translator
 		elsif (@number >= 10 && @number < 100 && @number%10 == 0)
-			puts "The number is greater than equal 10 & < 100 and divisible by 10"
-		elsif (@number%10 != 0 && @number < 20 && @number != 11 || 12 || 13 || 15)
-			puts "The teens translator works"
-		else (@number%10 != 0 && @number > 20)
-		
-			puts "Over twenty_trans"
-		# else
-		# 	anomoly_translator
+			tens_translator
+		elsif (@number > 13 && @number < 20 )
+			teens_translator
+		elsif (@number > 20 && @number < 100 && @number%10 != 0)
+			remainder = @number%10
+			over_twenty_translator.join("") + "-" + remainder_grabber(remainder).join("")
+		else
+			"The number you entered is not between 0-99.  Please re-enter the correct number"
 		end
 	end
 
@@ -69,17 +69,5 @@ class Say
 	end
 end
 
+puts Say.new(73).in_english
 
-Say.new(12).in_english
-# puts Say.new(33).in_english.inspect
-# puts Say.new(93).in_english.inspect
-# puts Say.new(30).in_english.inspect
-# puts Say.new(11).in_english.inspect
-# puts Say.new(12).in_english
-# puts Say.new(15).in_english
-
-# puts Say.new(9).ones_translator
-
-# puts Say.new(9).ones_translator
-# puts Say.new(22).tens_translator
-# puts Say.new(11).anomoly_translator
