@@ -20,7 +20,7 @@ class Say
 	def in_english
 		if [11, 12, 13, 15].include? @number
 			anomoly_translator
-		elsif (@number >0 && @number < 10)
+		elsif (@number >= 0 && @number < 10)
 			ones_translator
 		elsif (@number >= 10 && @number < 100 && @number%10 == 0)
 			tens_translator
@@ -69,5 +69,5 @@ class Say
 	end
 end
 
-puts Say.new(73).in_english
+puts Say.new(45).in_english
 
