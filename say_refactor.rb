@@ -69,5 +69,6 @@ class Say
 	end
 end
 
-puts Say.new(45).in_english
+puts Say.new(97).in_english
+
 
