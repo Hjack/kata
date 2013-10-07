@@ -14,11 +14,11 @@ class Beer
 	end
 
 	def self.first_verse
-		first_verse = [' bottles of beer on the wall, ', ' bottles of beer ']
+		first_verse = [' bottles of beer on the wall, ', 'bottles of beer ']
 	end
 
 	def self.second_verse
-		second_verse = ['You take on down, pass it around ', ' bottles of beer on the wall']
+		second_verse = ['You take on down, pass it around ', 'bottles of beer on the wall']
 	end
 
 
