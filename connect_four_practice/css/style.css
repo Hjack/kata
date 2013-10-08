@@ -1,0 +1,21 @@
+.box {
+	width: 90px;
+	height: 90px;
+	background-color: gray;
+	margin: 5px;
+	padding: 10px;
+	border-radius: 25px;
+	float: left;
+}
+
+.black {
+	background-color: black;
+}
+
+.green {
+	background-color: green;
+}
+
+* {
+	font-family: Helvetica;
+}

@@ -1,23 +1,3 @@
-<<<<<<< HEAD
-class Grandma
-
-	def self.listen(statement)
-		responder
-	end
-
-	def self.responder
-		if @statment == @statement.upcase
-			return "NO, NOT SINCE"
-		else
-			return "HUH?! SPEAK UP, SONNY!"
-		end
-	end
-
-end
-
-puts Grandma.listen('hello')
-puts Grandma.checker
-=======
 # whatever you say to grandma, she should respond with..."HUH?! SPEAK UP, SONNY!"
 
 # if it is all caps grandma says ..."NO, NOT SINCE (different random year between 1930 and 1950)!"
@@ -44,4 +24,3 @@ end
 
 
 
->>>>>>> d33066194fdbeb6a45e483915e3b324a9b410de7
