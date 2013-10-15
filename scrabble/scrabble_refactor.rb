@@ -21,11 +21,13 @@ class Scrabble
 
 
 	def self.score(word)
-		word_array = word.upcase.split(//)
-		print word_array
+		# word_array = word.upcase.split(//)
+		# print word_array
+
+		self.value_finder(word)
 	end
 
-	def value_finder(letter)
+	def self.value_finder(letter)
 		score = []
 		word_array = letter.upcase.split(//)
 
@@ -41,8 +43,8 @@ class Scrabble
 
 
 end
-puts Scrabble.score('Hakimu')
-puts Scrabble.score('Al')
+puts Scrabble.score('cabbage')
+# puts Scrabble.score('Al')
 
-x = Scrabble.new
-puts x.value_finder('cabbage')
+# x = Scrabble.new
+# puts x.value_finder('cabbage')
