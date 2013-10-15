@@ -26,9 +26,15 @@ class Scrabble
 	end
 
 	def value_finder(letter)
+		score = []
+		word_array = letter.upcase.split(//)
+
 		VALUES.map do |key,value|
-			if key.include?(letter)
-				puts value
+			word_array.map do |i|
+				if key.include?(i)
+					score.push(value)
+					score.inject(:+)
+				end
 			end
 		end
 	end
@@ -39,4 +45,4 @@ puts Scrabble.score('Hakimu')
 puts Scrabble.score('Al')
 
 x = Scrabble.new
-puts x.value_finder('Q')
+puts x.value_finder('cabbage')
